@@ -7,22 +7,24 @@ const selectedStyle = {
   color: "slategray"
 };
 export const MainMenu = () => (
-  <nav className="main-menu">
-    <NavLink to="/">[Home]</NavLink>
-    <NavLink to="/about" activeStyle={selectedStyle}>
-      [About]
+  <nav className="nav-wrapper">
+    <NavLink to="/" className="right">
+      &nbsp;Home&nbsp;
     </NavLink>
-    <NavLink to="/investors" activeStyle={selectedStyle}>
-      [Investors]
+    <NavLink to="/about" activeStyle={selectedStyle} className="right">
+      &nbsp;About&nbsp;
     </NavLink>
-    <NavLink to="/news" activeStyle={selectedStyle}>
-      [News]
+    <NavLink to="/investors" activeStyle={selectedStyle} className="right">
+      &nbsp;Investors&nbsp;
     </NavLink>
-    <NavLink to="/contact" activeStyle={selectedStyle}>
-      [Contact Us]
+    <NavLink to="/news" activeStyle={selectedStyle} className="right">
+      &nbsp;News&nbsp;
     </NavLink>
-    <NavLink to="/portfolio" activeStyle={selectedStyle}>
-      [Portfolio]
+    <NavLink to="/contact" activeStyle={selectedStyle} className="right">
+      &nbsp;Contact Us&nbsp;
+    </NavLink>
+    <NavLink to="/portfolio" activeStyle={selectedStyle} className="right">
+      &nbsp;Portfolio&nbsp;
     </NavLink>
   </nav>
 );

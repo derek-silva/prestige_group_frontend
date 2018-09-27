@@ -13,7 +13,9 @@ export default ({ article }) => {
             <p>{article.content}</p>
           </div>
           <div class="card-action">
-            <a href={article.url}>Link To Article</a>
+            <a href={article.url} target="_blank">
+              Link To Article
+            </a>
           </div>
         </div>
       </div>

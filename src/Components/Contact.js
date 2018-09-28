@@ -9,9 +9,9 @@ export default () => {
         margin: "auto"
       }}
     >
-      <h1>Contact Us</h1>
+      <h1 className="header teal-text text-darken-4">Contact Us</h1>
       <div className="card hoverable">
-        <div className="card-header red darken-4">
+        <div className="card-header teal darken-4">
           <h5>Sean "The Don" Huang</h5>
         </div>
         <div>&nbsp;</div>
@@ -29,11 +29,13 @@ export default () => {
           <li>fax: 444-444-4444</li>
         </ul>
         <div className="card-action">
-          <a href="http://www.google.com">LinkedIn</a>
+          <a href="https://github.com/hyprul" target="_blank">
+            LinkedIn
+          </a>
         </div>
       </div>
       <div className="card hoverable">
-        <div className="card-header red darken-4">
+        <div className="card-header teal darken-4">
           <h5>Nancy Do</h5>
         </div>
         <div>&nbsp;</div>
@@ -51,11 +53,13 @@ export default () => {
           <li>fax: 444-444-4444</li>
         </ul>
         <div className="card-action">
-          <a href="http://www.google.com">LinkedIn</a>
+          <a href="https://github.com/bunnyd" target="_blank">
+            LinkedIn
+          </a>
         </div>
       </div>
       <div className="card hoverable">
-        <div className="card-header red darken-4">
+        <div className="card-header teal darken-4">
           <h5>Derek Silva</h5>
         </div>
         <div>&nbsp;</div>
@@ -73,7 +77,9 @@ export default () => {
           <li>fax: 444-444-4444</li>
         </ul>
         <div className="card-action">
-          <a href="http://www.google.com">LinkedIn</a>
+          <a href="https://github.com/derek-silva" target="_blank">
+            LinkedIn
+          </a>
         </div>
       </div>
     </div>

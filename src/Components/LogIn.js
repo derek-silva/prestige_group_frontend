@@ -23,7 +23,7 @@ export default class LogIn extends Component {
                 <label htmlFor="password">Password</label>
               </div>
               <div className="center">
-                <button type="submit" className="btn indigo hoverable">
+                <button type="submit" className="btn teal darken-4 hoverable">
                   Log In
                 </button>
               </div>

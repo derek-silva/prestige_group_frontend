@@ -18,6 +18,10 @@
 /* Contact card header */
 .card-header {
   padding: 5px 10px 15px 15px;
-  background: #1a237e;
   color: white;
+}
+
+h5,
+h3 {
+  width: -webkit-fill-available;
 }

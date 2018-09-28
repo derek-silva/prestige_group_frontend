@@ -7,11 +7,9 @@ export default () => {
         <div class="section no-pad-bot">
           <div class="container">
             <br />
-            <h1 class="header center red-text text-darken-4">
-              Making Investing Smarter
-            </h1>
+            <h1 class="header center white-text">Making Investing Smarter</h1>
             <div class="row center">
-              <h4 class="header col s12 light black-text text-darken-4">
+              <h4 class="header col s12 light white-text text-darken-4">
                 A modern response to outdated trading techniques
               </h4>
             </div>
@@ -19,7 +17,7 @@ export default () => {
               <a
                 href="#"
                 id="download-button"
-                class="btn-large waves-effect waves-light red darken-4"
+                class="btn-large waves-effect waves-light teal darken-4"
               >
                 Become an Investor
               </a>
@@ -29,7 +27,7 @@ export default () => {
         </div>
         <div class="parallax">
           <img
-            src={require("../images/background.jpg")}
+            src={require("../images/more_buildings.jpg")}
             alt="Unsplashed background img 1"
           />
         </div>
@@ -43,11 +41,11 @@ export default () => {
                 <h2 class="center brown-text">
                   <i class="material-icons">flash_on</i>
                 </h2>
-                <h5 class="center">Speeds up market analysis</h5>
+                <h5 class="center">Fast Market Analysis</h5>
 
                 <p class="light">
                   We crunch the numbers for you and provide you the most precise
-                  market data to make decisions.
+                  market data to help you make the most optimal decisions.
                 </p>
               </div>
             </div>
@@ -71,9 +69,12 @@ export default () => {
                 <h2 class="center brown-text">
                   <i class="material-icons">settings</i>
                 </h2>
-                <h5 class="center">Easy to work with</h5>
+                <h5 class="center">Customizable</h5>
 
-                <p class="light">Intuitive work flow</p>
+                <p class="light">
+                  Intuitive work flow that allows you to customize your own
+                  personal investment prefences.
+                </p>
               </div>
             </div>
           </div>
@@ -81,18 +82,10 @@ export default () => {
       </div>
 
       <div class="parallax-container valign-wrapper">
-        <div class="section no-pad-bot">
-          <div class="container">
-            <div class="row center">
-              <h5 class="header col s12 light red-text">
-                Step into the future of investing
-              </h5>
-            </div>
-          </div>
-        </div>
+        <h5 class="center-align white-text">Utilize Emerging Technologies</h5>
         <div class="parallax">
           <img
-            src={require("../images/building.jpg")}
+            src={require("../images/blur.jpg")}
             alt="Unsplashed background img 2"
           />
         </div>
@@ -125,24 +118,16 @@ export default () => {
       </div>
 
       <div class="parallax-container valign-wrapper">
-        <div class="section no-pad-bot">
-          <div class="container">
-            <div class="row center">
-              <h5 class="header col s12 light red-text">
-                Utilize modern finance technology
-              </h5>
-            </div>
-          </div>
-        </div>
+        <h5 class="center-align white-text">Join the Future of Finance</h5>
         <div class="parallax">
           <img
-            src={require("../images/building.jpg")}
-            alt="Unsplashed background img 3"
+            src={require("../images/gold.jpg")}
+            alt="Unsplashed background img 2"
           />
         </div>
       </div>
 
-      <footer class="page-footer red darken-4">
+      <footer class="page-footer teal darken-4">
         <div class="container">
           <div class="row">
             <div class="col l6 s12">

@@ -11,7 +11,7 @@ export default () => {
     >
       <h1>Contact Us</h1>
       <div className="card hoverable">
-        <div className="card-header">
+        <div className="card-header red darken-4">
           <h5>Sean "The Don" Huang</h5>
         </div>
         <div>&nbsp;</div>
@@ -33,7 +33,7 @@ export default () => {
         </div>
       </div>
       <div className="card hoverable">
-        <div className="card-header">
+        <div className="card-header red darken-4">
           <h5>Nancy Do</h5>
         </div>
         <div>&nbsp;</div>
@@ -55,7 +55,7 @@ export default () => {
         </div>
       </div>
       <div className="card hoverable">
-        <div className="card-header">
+        <div className="card-header red darken-4">
           <h5>Derek Silva</h5>
         </div>
         <div>&nbsp;</div>

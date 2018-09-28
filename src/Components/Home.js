@@ -19,7 +19,7 @@ export default () => {
               <a
                 href="#"
                 id="download-button"
-                class="btn-large waves-effect waves-light indigo"
+                class="btn-large waves-effect waves-light red darken-4"
               >
                 Become an Investor
               </a>
@@ -84,7 +84,7 @@ export default () => {
         <div class="section no-pad-bot">
           <div class="container">
             <div class="row center">
-              <h5 class="header col s12 light">
+              <h5 class="header col s12 light red-text">
                 Step into the future of investing
               </h5>
             </div>
@@ -105,7 +105,7 @@ export default () => {
               <h3>
                 <i class="mdi-content-send brown-text" />
               </h3>
-              <h4>Contact Us</h4>
+              <h4>Our Promise</h4>
               <p class="left-align light">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
                 scelerisque id nunc nec volutpat. Etiam pellentesque tristique
@@ -128,7 +128,7 @@ export default () => {
         <div class="section no-pad-bot">
           <div class="container">
             <div class="row center">
-              <h5 class="header col s12 light">
+              <h5 class="header col s12 light red-text">
                 Utilize modern finance technology
               </h5>
             </div>
@@ -142,7 +142,7 @@ export default () => {
         </div>
       </div>
 
-      <footer class="page-footer teal">
+      <footer class="page-footer red darken-4">
         <div class="container">
           <div class="row">
             <div class="col l6 s12">

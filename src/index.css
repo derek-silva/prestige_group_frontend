@@ -1,8 +1,3 @@
-/* label focus color */
-.input-field input:focus + label {
-  color: rgb(69, 20, 206) !important;
-}
-
 @media only screen and (max-width: 992px) {
   .parallax img {
     max-height: 130%; /* or a little bit higher */

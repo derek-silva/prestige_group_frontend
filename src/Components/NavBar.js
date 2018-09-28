@@ -22,13 +22,6 @@ export const NavBar = props => (
       &nbsp;Log In&nbsp;
     </NavLink>
     <NavLink
-      to="/about"
-      activeStyle={selectedStyle}
-      className="right waves-effect waves-light btn-large teal darken-4"
-    >
-      &nbsp;About&nbsp;
-    </NavLink>
-    <NavLink
       to="/contact"
       activeStyle={selectedStyle}
       className="right waves-effect waves-light btn-large teal darken-4"

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import NavBar from "./Components/NavBar";
-import About from "./Components/About";
 import Contact from "./Components/Contact";
 import Portfolio from "./Components/Portfolio";
 import LogIn from "./Components/LogIn";
@@ -24,7 +23,6 @@ class App extends Component {
           <React.Fragment>
             <NavBar loggedInUser={this.state.loggedInUser} />
             <Route exact path="/" component={Home} />
-            <Route exact path="/about" component={About} />
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/news" component={News} />
             <Route exact path="/login" component={LogIn} />

@@ -7,7 +7,7 @@ const selectedStyle = {
 };
 
 export const NavBar = props => (
-  <nav className="nav-wrapper  indigo">
+  <nav className="nav-wrapper   red darken-4">
     <NavLink to="/">&nbsp;PRESTIGE GROUP LP&nbsp;</NavLink>
     <NavLink to="/login" activeStyle={selectedStyle} className="right">
       &nbsp;Log In&nbsp;

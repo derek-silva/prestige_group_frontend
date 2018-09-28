@@ -10,6 +10,7 @@ export default class LogIn extends Component {
             width: "600px",
             margin: "auto"
           }}
+          className="form-container"
         >
           <form>
             <div>

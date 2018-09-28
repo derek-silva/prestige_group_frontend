@@ -4,7 +4,7 @@ export default class Portfolio extends Component {
   render() {
     return (
       <div>
-        <h1>Portfolio</h1>
+        <h1 align="center">Portfolio</h1>
       </div>
     );
   }

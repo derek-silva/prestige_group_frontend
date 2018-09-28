@@ -3,10 +3,10 @@ import NavBar from "./Components/NavBar";
 import About from "./Components/About";
 import Contact from "./Components/Contact";
 import Portfolio from "./Components/Portfolio";
+import LogIn from "./Components/LogIn";
 import News from "./Components/News";
 import Home from "./Components/Home";
-import "./App.css";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 
 class App extends Component {
   constructor() {
@@ -22,11 +22,12 @@ class App extends Component {
       <div>
         <BrowserRouter>
           <React.Fragment>
-            <NavBar />
+            <NavBar loggedInUser={this.state.loggedInUser} />
             <Route exact path="/" component={Home} />
             <Route exact path="/about" component={About} />
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/news" component={News} />
+            <Route exact path="/login" component={LogIn} />
             <Route
               exact
               path="/portfolio"

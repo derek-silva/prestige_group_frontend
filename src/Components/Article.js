@@ -2,16 +2,16 @@ import React from "react";
 
 export default ({ article }) => {
   return (
-    <div class="row">
-      <div class="card">
-        <div class="card-image">
-          <img src={article.urlToImage} />
-          <span class="card-title">{article.title}</span>
+    <div className="row">
+      <div className="card hoverable">
+        <div className="card-image">
+          <img src={article.urlToImage} alt="" />
+          <span className="card-title">{article.title}</span>
         </div>
-        <div class="card-content">
+        <div className="card-content">
           <p>{article.content}</p>
         </div>
-        <div class="card-action">
+        <div className="card-action">
           <a href={article.url} target="_blank">
             Go To Article
           </a>

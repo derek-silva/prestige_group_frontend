@@ -9,6 +9,7 @@ export default class News extends Component {
       Articles: []
     };
   }
+
   fetchNews = () => {
     fetch(
       `https://newsapi.org/v2/everything?sources=the-wall-street-journal&apiKey=1240d6f804a4436f8b5c5cc8cfecdd6e`
@@ -18,11 +19,11 @@ export default class News extends Component {
   };
 
   renderNews = () => {
-    return this.state.Articles.length === 0
-      ? "Loading..."
-      : this.state.Articles.articles.map(article => (
-          <Article article={article} />
-        ));
+    return this.state.Articles.length === 0 ? (
+      <h5 align="center">Loading...</h5>
+    ) : (
+      this.state.Articles.articles.map(article => <Article article={article} />)
+    );
   };
 
   componentDidMount() {
@@ -33,11 +34,11 @@ export default class News extends Component {
     return (
       <div
         style={{
-          width: "900px",
+          width: "1000px",
           margin: "auto"
         }}
       >
-        <h1>News</h1>
+        <h1 align="center">Recent Articles</h1>
         {this.renderNews()}
       </div>
     );

@@ -1,31 +1,33 @@
 import { NavLink } from "react-router-dom";
-import React, { Component } from "react";
+import React from "react";
 
 const selectedStyle = {
   backgroundColor: "white",
   color: "slategray"
 };
 
-export const NavBar = () => (
-  <nav className="nav-wrapper">
-    <NavLink to="/" className="right">
-      &nbsp;Home&nbsp;
+export const NavBar = props => (
+  <nav className="nav-wrapper  indigo">
+    <NavLink to="/">&nbsp;PRESTIGE GROUP LP&nbsp;</NavLink>
+    <NavLink to="/login" activeStyle={selectedStyle} className="right">
+      &nbsp;Log In&nbsp;
     </NavLink>
     <NavLink to="/about" activeStyle={selectedStyle} className="right">
       &nbsp;About&nbsp;
     </NavLink>
-    <NavLink to="/investors" activeStyle={selectedStyle} className="right">
-      &nbsp;Investors&nbsp;
+    <NavLink to="/contact" activeStyle={selectedStyle} className="right">
+      &nbsp;Contact Us&nbsp;
     </NavLink>
     <NavLink to="/news" activeStyle={selectedStyle} className="right">
       &nbsp;News&nbsp;
     </NavLink>
-    <NavLink to="/contact" activeStyle={selectedStyle} className="right">
-      &nbsp;Contact Us&nbsp;
-    </NavLink>
-    <NavLink to="/portfolio" activeStyle={selectedStyle} className="right">
-      &nbsp;Portfolio&nbsp;
-    </NavLink>
+    {props.loggedInUser ? (
+      <NavLink to="/portfolio" activeStyle={selectedStyle} className="right">
+        &nbsp;Portfolio&nbsp;
+      </NavLink>
+    ) : (
+      console.log("no user")
+    )}
   </nav>
 );
 

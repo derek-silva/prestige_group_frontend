@@ -25,6 +25,11 @@ export default () => {
           <li>phone: 555-555-5555</li>
           <li>fax: 444-444-4444</li>
         </ul>
+        <div className="card-action">
+          <a href="http://www.google.com" target="_blank">
+            LinkedIn
+          </a>
+        </div>
       </div>
       <div className="card hoverable">
         <p>Nancy Do</p>
@@ -41,6 +46,11 @@ export default () => {
           <li>phone: 555-555-5555</li>
           <li>fax: 444-444-4444</li>
         </ul>
+        <div className="card-action">
+          <a href="http://www.google.com" target="_blank">
+            LinkedIn
+          </a>
+        </div>
       </div>
       <div className="card hoverable">
         <p>Derek Silva</p>
@@ -57,6 +67,11 @@ export default () => {
           <li>phone: 555-555-5555</li>
           <li>fax: 444-444-4444</li>
         </ul>
+        <div className="card-action">
+          <a href="http://www.google.com" target="_blank">
+            LinkedIn
+          </a>
+        </div>
       </div>
     </div>
   );

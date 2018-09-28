@@ -11,7 +11,10 @@ export default () => {
     >
       <h1>Contact Us</h1>
       <div className="card hoverable">
-        <p>Sean "The Don" Huang</p>
+        <div className="card-header">
+          <h5>Sean "The Don" Huang</h5>
+        </div>
+        <div>&nbsp;</div>
         <img
           style={{
             width: "300px",
@@ -26,13 +29,14 @@ export default () => {
           <li>fax: 444-444-4444</li>
         </ul>
         <div className="card-action">
-          <a href="http://www.google.com" target="_blank">
-            LinkedIn
-          </a>
+          <a href="http://www.google.com">LinkedIn</a>
         </div>
       </div>
       <div className="card hoverable">
-        <p>Nancy Do</p>
+        <div className="card-header">
+          <h5>Nancy Do</h5>
+        </div>
+        <div>&nbsp;</div>
         <img
           style={{
             width: "300px",
@@ -47,13 +51,14 @@ export default () => {
           <li>fax: 444-444-4444</li>
         </ul>
         <div className="card-action">
-          <a href="http://www.google.com" target="_blank">
-            LinkedIn
-          </a>
+          <a href="http://www.google.com">LinkedIn</a>
         </div>
       </div>
       <div className="card hoverable">
-        <p>Derek Silva</p>
+        <div className="card-header">
+          <h5>Derek Silva</h5>
+        </div>
+        <div>&nbsp;</div>
         <img
           style={{
             width: "300px",
@@ -68,9 +73,7 @@ export default () => {
           <li>fax: 444-444-4444</li>
         </ul>
         <div className="card-action">
-          <a href="http://www.google.com" target="_blank">
-            LinkedIn
-          </a>
+          <a href="http://www.google.com">LinkedIn</a>
         </div>
       </div>
     </div>

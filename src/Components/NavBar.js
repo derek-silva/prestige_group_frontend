@@ -1,12 +1,12 @@
 import { NavLink } from "react-router-dom";
 import React, { Component } from "react";
-import "../stylesheets/menus.scss";
 
 const selectedStyle = {
   backgroundColor: "white",
   color: "slategray"
 };
-export const MainMenu = () => (
+
+export const NavBar = () => (
   <nav className="nav-wrapper">
     <NavLink to="/" className="right">
       &nbsp;Home&nbsp;
@@ -28,6 +28,7 @@ export const MainMenu = () => (
     </NavLink>
   </nav>
 );
+
 export const AboutMenu = ({ match }) => (
   <div className="about-menu">
     <li>
@@ -38,4 +39,4 @@ export const AboutMenu = ({ match }) => (
   </div>
 );
 
-export default MainMenu;
+export default NavBar;

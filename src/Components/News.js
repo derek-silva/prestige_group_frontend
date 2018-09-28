@@ -31,7 +31,12 @@ export default class News extends Component {
 
   render() {
     return (
-      <div>
+      <div
+        style={{
+          width: "900px",
+          margin: "auto"
+        }}
+      >
         <h1>News</h1>
         {this.renderNews()}
       </div>

@@ -5,6 +5,7 @@ import Portfolio from "./Components/Portfolio";
 import LogIn from "./Components/LogIn";
 import News from "./Components/News";
 import Home from "./Components/Home";
+import SignUp from "./Components/SignUp";
 import { BrowserRouter, Route } from "react-router-dom";
 
 class App extends Component {
@@ -26,6 +27,7 @@ class App extends Component {
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/news" component={News} />
             <Route exact path="/login" component={LogIn} />
+            <Route exact path="/signup" component={SignUp} />
             <Route
               exact
               path="/portfolio"

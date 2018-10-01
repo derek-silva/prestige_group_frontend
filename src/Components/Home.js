@@ -1,5 +1,6 @@
 import React from "react";
-import { Button, Icon, Parallax } from "react-materialize";
+import { Button, Parallax } from "react-materialize";
+import { NavLink } from "react-router-dom";
 
 export default () => {
   return (
@@ -19,9 +20,11 @@ export default () => {
           erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
           posuere cubilia Curae
         </p>
-        <Button waves="light" className="teal darken-4">
-          Become an Investor
-        </Button>
+        <NavLink to="/signup">
+          <Button waves="light" className="teal darken-4">
+            Become an Investor
+          </Button>
+        </NavLink>
       </div>
 
       <Parallax imageSrc={require("../images/blur.jpg")} />
@@ -44,12 +47,12 @@ export default () => {
       </div>
 
       <Parallax imageSrc={require("../images/gold.jpg")} />
-      <footer class="page-footer teal darken-4">
-        <div class="container">
-          <div class="row">
-            <div class="col l6 s12">
-              <h5 class="white-text">Prestige Group LP</h5>
-              <p class="grey-text text-lighten-4">
+      <footer className="page-footer teal darken-4">
+        <div className="container">
+          <div className="row">
+            <div className="col l6 s12">
+              <h5 className="white-text">Prestige Group LP</h5>
+              <p className="grey-text text-lighten-4">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
                 scelerisque id nunc nec volutpat. Etiam pellentesque tristique
                 arcu, non consequat magna fermentum ac. Cras ut ultricies eros.

@@ -29,7 +29,11 @@ export default () => {
           <li>fax: 444-444-4444</li>
         </ul>
         <div className="card-action">
-          <a href="https://github.com/hyprul" target="_blank">
+          <a
+            href="https://github.com/hyprul"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             LinkedIn
           </a>
         </div>
@@ -53,7 +57,11 @@ export default () => {
           <li>fax: 444-444-4444</li>
         </ul>
         <div className="card-action">
-          <a href="https://github.com/bunnyd" target="_blank">
+          <a
+            href="https://github.com/bunnyd"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             LinkedIn
           </a>
         </div>
@@ -77,7 +85,11 @@ export default () => {
           <li>fax: 444-444-4444</li>
         </ul>
         <div className="card-action">
-          <a href="https://github.com/derek-silva" target="_blank">
+          <a
+            href="https://github.com/derek-silva"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             LinkedIn
           </a>
         </div>

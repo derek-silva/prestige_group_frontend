@@ -12,7 +12,7 @@ export default ({ article }) => {
           <p>{article.content}</p>
         </div>
         <div className="card-action">
-          <a href={article.url} target="_blank">
+          <a href={article.url} target="_blank" rel="noopener noreferrer">
             Go To Article
           </a>
         </div>

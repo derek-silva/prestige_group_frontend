@@ -7,7 +7,8 @@ export const NavBar = props => (
       to="/"
       className="waves-effect waves-light home-button teal darken-4"
     >
-      &nbsp;PRESTIGE GROUP LP&nbsp;
+      {/*&nbsp;PRESTIGE GROUP LP&nbsp;*/}
+      <img src={require("../images/whitelogofinal.jpg")} alt="" width="200"/>
     </NavLink>
     <NavLink
       to="/login"

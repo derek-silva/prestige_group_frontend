@@ -38,7 +38,7 @@ export default class News extends Component {
           margin: "auto"
         }}
       >
-        <h1 className="header center">Recent News</h1>
+        <h1 className="header center">Market News</h1>
         <hr />
         <div className="row">{this.renderNews()}</div>
       </div>

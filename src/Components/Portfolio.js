@@ -31,7 +31,7 @@ export default class Portfolio extends Component {
       .then(h => this.setState({ allData: h, chartData: { holdings: h } }))
       .then(r => this.setChartData())
       .then(r => this.totalHoldings())
-      .then(r => this.setholdingData());
+      .then(r => this.setholdingData())
       .then(r => this.fetchStocks());
   }
 
@@ -51,10 +51,10 @@ export default class Portfolio extends Component {
     //console.log(this.state.stocks);
     let buyinamount = 0;
     this.state.stocks.data.forEach(stock => {
-      buyinamount += stock.attributes["buy-in-price"] * stock.attributes.shares
+      buyinamount += stock.attributes["buy-in-price"] * stock.attributes.shares;
     });
-    let growthytd = ((this.state.aum - buyinamount)/buyinamount) * 100 
-    this.setState({growthytd: parseFloat(growthytd).toFixed(2)})
+    let growthytd = ((this.state.aum - buyinamount) / buyinamount) * 100;
+    this.setState({ growthytd: parseFloat(growthytd).toFixed(2) });
   }
 
   totalHoldings() {
@@ -189,7 +189,6 @@ export default class Portfolio extends Component {
           }
         ]
       };
-      debugger;
       return vikingObj;
     }
   }
@@ -201,7 +200,7 @@ export default class Portfolio extends Component {
       datasets: [
         {
           label: "Consumer Discretionary",
-          data: [],
+          data: [this.getOwnedAssets(holdingData.vanderbilt)],
           backgroundColor: ["#247F60", "#97FFDB", "#49FFC1", "#1D3D3C"]
         }
       ]
@@ -216,7 +215,7 @@ export default class Portfolio extends Component {
       datasets: [
         {
           label: "Healthcare",
-          data: [],
+          data: [this.getOwnedAssets(holdingData.abc)],
           backgroundColor: ["#247F60", "#97FFDB", "#49FFC1", "#1D3D3C"]
         }
       ]
@@ -231,7 +230,7 @@ export default class Portfolio extends Component {
       datasets: [
         {
           label: "Real Estate",
-          data: [],
+          data: [this.getOwnedAssets(holdingData.xyz)],
           backgroundColor: ["#247F60", "#97FFDB", "#49FFC1", "#1D3D3C"]
         }
       ]

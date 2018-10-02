@@ -249,31 +249,32 @@ export default class Portfolio extends Component {
       <div align="center">
         <h1>Prestige Portfolio</h1>
         <hr />
-        <CustomizedTable stocks={this.state.stocks}/>
+        <CustomizedTable stocks={this.state.stocks} />
         <div class="container">
           <div className="card-large hoverable">
             <h3>Assets Under Management: ${this.state.aumdollar}</h3>
             <h5>Growth Ytd: {this.state.growthytd}%</h5>
           </div>
 
-        <Chart chartData={this.state.chartData} legendPosition="top" />
-        <br />
-        <br />
-        <Tabs className="tab-demo z-depth-1" title="Holdings">
-          <Tab title="Viking" active>
-            <BarGraph tableData={this.renderViking()} />
-          </Tab>
-          <Tab title="Vanderbilt">
-            <BarGraph tableData={this.renderVanderBilt()} />
-          </Tab>
-          <Tab title="ABC">
-            <BarGraph tableData={this.renderABC()} />
-          </Tab>
-          <Tab title="XYZ">
-            <BarGraph tableData={this.renderXYZ()} />
-          </Tab>
-        </Tabs>
+          <Chart chartData={this.state.chartData} legendPosition="top" />
+          <br />
+          <br />
+          <Tabs className="tab-demo z-depth-1" title="Holdings">
+            <Tab title="Viking" active>
+              <BarGraph tableData={this.renderViking()} />
+            </Tab>
+            <Tab title="Vanderbilt">
+              <BarGraph tableData={this.renderVanderBilt()} />
+            </Tab>
+            <Tab title="ABC">
+              <BarGraph tableData={this.renderABC()} />
+            </Tab>
+            <Tab title="XYZ">
+              <BarGraph tableData={this.renderXYZ()} />
+            </Tab>
+          </Tabs>
         </div>
+      </div>
     );
   }
 }

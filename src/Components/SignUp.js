@@ -5,6 +5,7 @@ export default class SignUp extends Component {
     return (
       <div>
         <h1 align="center">Investor Sign Up</h1>
+        <hr />
         <div
           style={{
             width: "750px",

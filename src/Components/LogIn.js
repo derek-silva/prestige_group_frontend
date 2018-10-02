@@ -5,6 +5,8 @@ export default class LogIn extends Component {
     return (
       <div>
         <h1 align="center">Investor Log In</h1>
+        <hr />
+        <br />
         <div
           style={{
             width: "600px",

@@ -10,6 +10,7 @@ export default () => {
       }}
     >
       <h1 className="header teal-text text-darken-4">Contact Us</h1>
+      <hr />
       <div className="card hoverable">
         <div className="card-header teal darken-4">
           <h5>Sean "The Don" Huang</h5>
@@ -34,7 +35,7 @@ export default () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            LinkedIn
+            GitHub
           </a>
         </div>
       </div>
@@ -62,7 +63,7 @@ export default () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            LinkedIn
+            GitHub
           </a>
         </div>
       </div>
@@ -90,7 +91,7 @@ export default () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            LinkedIn
+            GitHub
           </a>
         </div>
       </div>

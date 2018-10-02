@@ -56,7 +56,7 @@ function CustomizedTable(props) {
   if (stocks.length != []) {
     console.log("blah")
     stocks.data.forEach(stock =>
-      rows.push(createData(`${stock.attributes.symbol}`, parseInt(stock.attributes.shares), `$${stock.attributes.price}`, `$${parseFloat(stock.attributes.price*stock.attributes.shares).toFixed(2)}`, `${parseFloat(stock.attributes["ytd-change-percent"]*100).toFixed(2)}%`))
+      rows.push(createData(`${stock.attributes["company-name"]} (${stock.attributes.symbol})`, parseInt(stock.attributes.shares), `$${stock.attributes.price}`, `$${parseFloat(stock.attributes.price*stock.attributes.shares).toFixed(2)}`, `${parseFloat(stock.attributes["ytd-change-percent"]*100).toFixed(2)}%`))
     );
   }
 

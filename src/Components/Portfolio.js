@@ -8,10 +8,11 @@ export default class Portfolio extends Component {
     super();
     this.state = {
       aum: 0,
+      allData: [],
       chartData: {
         holdings: []
       },
-      barData: {
+      holdingData: {
         viking: [],
         vanderbilt: [],
         abc: [],
@@ -24,10 +25,10 @@ export default class Portfolio extends Component {
   fetchHoldings() {
     fetch("http://localhost:3000/holdings")
       .then(holdingsData => holdingsData.json())
-      .then(h => this.setState({ chartData: { holdings: h } }))
+      .then(h => this.setState({ allData: h, chartData: { holdings: h } }))
       .then(r => this.setChartData())
       .then(r => this.totalHoldings())
-      .then(r => this.setBarData());
+      .then(r => this.setholdingData());
   }
 
   componentDidMount() {
@@ -48,7 +49,7 @@ export default class Portfolio extends Component {
 
   setChartData() {
     const { chartData } = this.state;
-    // Ajax calls here
+
     this.setState({
       chartData: {
         labels: [
@@ -74,37 +75,149 @@ export default class Portfolio extends Component {
     });
   }
 
-  setBarData() {
-    const { barData } = this.state;
+  setholdingData() {
+    const { holdingData } = this.state;
+    let vikingArray = this.getVikingObj();
+    let vanderbiltArray = this.getVanderbiltObj();
+    let abcArray = this.getAbcObj();
+    let xyzArray = this.getXyzObj();
 
     this.setState({
-      barData: {
-        viking: null,
-        vanderbilt: null,
-        abc: null,
-        xyz: null
+      holdingData: {
+        viking: vikingArray,
+        vanderbilt: vanderbiltArray,
+        abc: abcArray,
+        xyz: xyzArray
       }
     });
   }
 
   getVikingObj() {
-    const { chartData } = this.state;
+    const { allData } = this.state;
     let stocks = [];
-    chartData.holdings.included.map(stock => {
-      if (stock.sector === "Technology") {
+    allData.included.map(stock => {
+      if (stock.attributes.sector === "Technology") {
         stocks.push(stock);
       }
     });
+    return stocks;
   }
 
-  getVanderbiltObj() {}
+  getVanderbiltObj() {
+    const { allData } = this.state;
+    let stocks = [];
+    allData.included.map(stock => {
+      if (stock.attributes.sector === "Consumer Cyclical") {
+        stocks.push(stock);
+      }
+    });
+    return stocks;
+  }
 
-  getAbcObj() {}
+  getAbcObj() {
+    const { allData } = this.state;
+    let stocks = [];
+    allData.included.map(stock => {
+      if (stock.attributes.sector === "Healthcare") {
+        stocks.push(stock);
+      }
+    });
+    return stocks;
+  }
 
-  getXyzObj() {}
+  getXyzObj() {
+    const { allData } = this.state;
+    let stocks = [];
+    allData.included.map(stock => {
+      if (stock.attributes.sector === "Real Estate") {
+        stocks.push(stock);
+      }
+    });
+    return stocks;
+  }
+
+  getStockSymbols(holding) {
+    let symbols = [];
+    holding.forEach(stock => {
+      symbols.push(stock.attributes.symbol);
+    });
+    return symbols;
+  }
+
+  getOwnedAssets(holding) {
+    let ownedAssets = null;
+    holding.forEach(stock => {
+      let sum = stock.attributes.price * stock.attributes.shares;
+      ownedAssets += sum;
+    });
+    return ownedAssets;
+  }
+
+  renderViking() {
+    const { holdingData } = this.state;
+    if (holdingData.viking.length !== 0) {
+      let vikingObj = {
+        labels: [this.getStockSymbols(holdingData.viking)],
+        datasets: [
+          {
+            label: "Technology",
+            data: [this.getOwnedAssets(holdingData.viking)],
+            backgroundColor: ["#247F60", "#97FFDB", "#49FFC1", "#1D3D3C"]
+          }
+        ]
+      };
+      debugger;
+      return vikingObj;
+    }
+  }
+
+  renderVanderBilt() {
+    const { holdingData } = this.state;
+    let vanderbiltObj = {
+      labels: [this.getStockSymbols(holdingData.vanderbilt)],
+      datasets: [
+        {
+          label: "Consumer Discretionary",
+          data: [],
+          backgroundColor: ["#247F60", "#97FFDB", "#49FFC1", "#1D3D3C"]
+        }
+      ]
+    };
+    return vanderbiltObj;
+  }
+
+  renderABC() {
+    const { holdingData } = this.state;
+    let abcObj = {
+      labels: [this.getStockSymbols(holdingData.abc)],
+      datasets: [
+        {
+          label: "Healthcare",
+          data: [],
+          backgroundColor: ["#247F60", "#97FFDB", "#49FFC1", "#1D3D3C"]
+        }
+      ]
+    };
+    return abcObj;
+  }
+
+  renderXYZ() {
+    const { holdingData } = this.state;
+    let xyzObj = {
+      labels: [this.getStockSymbols(holdingData.xyz)],
+      datasets: [
+        {
+          label: "Real Estate",
+          data: [],
+          backgroundColor: ["#247F60", "#97FFDB", "#49FFC1", "#1D3D3C"]
+        }
+      ]
+    };
+    return xyzObj;
+  }
 
   render() {
-    if (this.state.loading) {
+    if (this.state.loading || this.state.holdingData.viking === null) {
       return <div>Loading...</div>;
     }
 
@@ -120,22 +233,16 @@ export default class Portfolio extends Component {
         <br />
         <Tabs className="tab-demo z-depth-1" title="Holdings">
           <Tab title="Viking">
-            <BarGraph
-              barData={this.state.barData.viking}
-              legendPosition="top"
-            />
+            <BarGraph tableData={this.renderViking()} />
           </Tab>
           <Tab title="Vanderbilt" active>
-            <BarGraph
-              barData={this.state.barData.vanderbilt}
-              legendPosition="top"
-            />
+            <BarGraph tableData={this.renderVanderBilt()} />
           </Tab>
           <Tab title="ABC">
-            <BarGraph barData={this.state.barData.abc} legendPosition="top" />
+            <BarGraph tableData={this.renderABC()} />
           </Tab>
           <Tab title="XYZ">
-            <BarGraph barData={this.state.barData.xyz} legendPosition="top" />
+            <BarGraph tableData={this.renderXYZ()} />
           </Tab>
         </Tabs>
       </div>

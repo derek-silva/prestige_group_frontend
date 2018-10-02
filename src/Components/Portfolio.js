@@ -249,7 +249,7 @@ export default class Portfolio extends Component {
       <div align="center">
         <h1>Prestige Portfolio</h1>
         <hr />
-        <CustomizedTable stocks={this.state.stocks}/>
+        <CustomizedTable stocks={this.state.stocks} />
         <div class="container">
           <div className="card-large hoverable">
             <h3>Assets Under Management: ${this.state.aumdollar}</h3>
@@ -259,47 +259,21 @@ export default class Portfolio extends Component {
           <Chart chartData={this.state.chartData} legendPosition="top" />
           <br />
           <br />
-
           <Tabs className="tab-demo z-depth-1" title="Holdings">
             <Tab title="Viking" active>
-              <BarGraph
-                barData={this.state.barData.viking}
-                legendPosition="top"
-              />
+              <BarGraph tableData={this.renderViking()} />
             </Tab>
             <Tab title="Vanderbilt">
-              <BarGraph
-                barData={this.state.barData.vanderbilt}
-                legendPosition="top"
-              />
+              <BarGraph tableData={this.renderVanderBilt()} />
             </Tab>
             <Tab title="ABC">
-              <BarGraph barData={this.state.barData.abc} legendPosition="top" />
+              <BarGraph tableData={this.renderABC()} />
             </Tab>
             <Tab title="XYZ">
-              <BarGraph barData={this.state.barData.xyz} legendPosition="top" />
+              <BarGraph tableData={this.renderXYZ()} />
             </Tab>
           </Tabs>
         </div>
-
-        <Chart chartData={this.state.chartData} legendPosition="top" />
-        <br />
-        <br />
-        <Tabs className="tab-demo z-depth-1" title="Holdings">
-          <Tab title="Viking" active>
-            <BarGraph tableData={this.renderViking()} />
-          </Tab>
-          <Tab title="Vanderbilt">
-            <BarGraph tableData={this.renderVanderBilt()} />
-          </Tab>
-          <Tab title="ABC">
-            <BarGraph tableData={this.renderABC()} />
-          </Tab>
-          <Tab title="XYZ">
-            <BarGraph tableData={this.renderXYZ()} />
-          </Tab>
-        </Tabs>
-
       </div>
     );
   }

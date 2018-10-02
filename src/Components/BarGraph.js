@@ -17,6 +17,7 @@ class BarGraph extends Component {
   };
 
   render() {
+    console.log(`bargraph`, this.state.tableData);
     return (
       <div className="chart">
         <Bar

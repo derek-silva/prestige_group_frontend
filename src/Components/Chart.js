@@ -17,6 +17,7 @@ class Chart extends Component {
   };
 
   render() {
+    console.log(`piechart`, this.state.chartData);
     return (
       <div className="chart">
         <Pie

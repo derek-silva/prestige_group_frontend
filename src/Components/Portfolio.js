@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Table, Tabs, Tab } from "react-materialize";
 import Chart from "./Chart";
 import BarGraph from "./BarGraph";
+import CustomizedTable from "./Table";
 
 export default class Portfolio extends Component {
   constructor() {
@@ -50,10 +51,10 @@ export default class Portfolio extends Component {
     //console.log(this.state.stocks);
     let buyinamount = 0;
     this.state.stocks.data.forEach(stock => {
-      buyinamount += stock.attributes["buy-in-price"] * stock.attributes.shares
+      buyinamount += stock.attributes["buy-in-price"] * stock.attributes.shares;
     });
-    let growthytd = ((this.state.aum - buyinamount)/buyinamount) * 100 
-    this.setState({growthytd: parseFloat(growthytd).toFixed(2)})
+    let growthytd = ((this.state.aum - buyinamount) / buyinamount) * 100;
+    this.setState({ growthytd: parseFloat(growthytd).toFixed(2) });
   }
 
   totalHoldings() {
@@ -135,35 +136,41 @@ export default class Portfolio extends Component {
 
     return (
       <div align="center">
-        <h1>Portfolio</h1>
+        <h1>Prestige Portfolio</h1>
         <hr />
-        <div className="card-large hoverable">
-          <h3>Assets Under Management: ${this.state.aumdollar}</h3>
-          <h5>Growth Ytd: {this.state.growthytd}%</h5>
+        <CustomizedTable stocks={this.state.stocks}/>
+        <div class="container">
+          <div className="card-large hoverable">
+            <h3>Assets Under Management: ${this.state.aumdollar}</h3>
+            <h5>Growth Ytd: {this.state.growthytd}%</h5>
+          </div>
+
+          <Chart chartData={this.state.chartData} legendPosition="top" />
+          <br />
+          <br />
+
+          <Tabs className="tab-demo z-depth-1" title="Holdings">
+            <Tab title="Viking" active>
+              <BarGraph
+                barData={this.state.barData.viking}
+                legendPosition="top"
+              />
+            </Tab>
+            <Tab title="Vanderbilt">
+              <BarGraph
+                barData={this.state.barData.vanderbilt}
+                legendPosition="top"
+              />
+            </Tab>
+            <Tab title="ABC">
+              <BarGraph barData={this.state.barData.abc} legendPosition="top" />
+            </Tab>
+            <Tab title="XYZ">
+              <BarGraph barData={this.state.barData.xyz} legendPosition="top" />
+            </Tab>
+          </Tabs>
         </div>
-        <Chart chartData={this.state.chartData} legendPosition="top" />
-        <br />
-        <br />
-        <Tabs className="tab-demo z-depth-1" title="Holdings">
-          <Tab title="Viking">
-            <BarGraph
-              barData={this.state.barData.viking}
-              legendPosition="top"
-            />
-          </Tab>
-          <Tab title="Vanderbilt" active>
-            <BarGraph
-              barData={this.state.barData.vanderbilt}
-              legendPosition="top"
-            />
-          </Tab>
-          <Tab title="ABC">
-            <BarGraph barData={this.state.barData.abc} legendPosition="top" />
-          </Tab>
-          <Tab title="XYZ">
-            <BarGraph barData={this.state.barData.xyz} legendPosition="top" />
-          </Tab>
-        </Tabs>
+        {/*end of container*/}
       </div>
     );
   }

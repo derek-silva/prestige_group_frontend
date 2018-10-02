@@ -165,14 +165,15 @@ export default class Portfolio extends Component {
     holding.forEach(stock => {
       symbols.push(stock.attributes.symbol);
     });
+    console.log(`symbol`, symbols);
     return symbols;
   }
 
   getOwnedAssets(holding) {
-    let ownedAssets = null;
+    let ownedAssets = [];
     holding.forEach(stock => {
       let sum = stock.attributes.price * stock.attributes.shares;
-      ownedAssets += sum;
+      ownedAssets.push(sum);
     });
     return ownedAssets;
   }
@@ -181,16 +182,15 @@ export default class Portfolio extends Component {
     const { holdingData } = this.state;
     if (holdingData.viking.length !== 0) {
       let vikingObj = {
-        labels: [this.getStockSymbols(holdingData.viking)],
+        labels: this.getStockSymbols(holdingData.viking),
         datasets: [
           {
             label: "Technology",
-            data: [this.getOwnedAssets(holdingData.viking)],
+            data: this.getOwnedAssets(holdingData.viking),
             backgroundColor: ["#247F60", "#97FFDB", "#49FFC1", "#1D3D3C"]
           }
         ]
       };
-      debugger;
       return vikingObj;
     }
   }
@@ -198,11 +198,11 @@ export default class Portfolio extends Component {
   renderVanderBilt() {
     const { holdingData } = this.state;
     let vanderbiltObj = {
-      labels: [this.getStockSymbols(holdingData.vanderbilt)],
+      labels: this.getStockSymbols(holdingData.vanderbilt),
       datasets: [
         {
           label: "Consumer Discretionary",
-          data: [],
+          data: this.getOwnedAssets(holdingData.vanderbilt),
           backgroundColor: ["#247F60", "#97FFDB", "#49FFC1", "#1D3D3C"]
         }
       ]
@@ -213,11 +213,11 @@ export default class Portfolio extends Component {
   renderABC() {
     const { holdingData } = this.state;
     let abcObj = {
-      labels: [this.getStockSymbols(holdingData.abc)],
+      labels: this.getStockSymbols(holdingData.abc),
       datasets: [
         {
           label: "Healthcare",
-          data: [],
+          data: this.getOwnedAssets(holdingData.abc),
           backgroundColor: ["#247F60", "#97FFDB", "#49FFC1", "#1D3D3C"]
         }
       ]
@@ -228,11 +228,11 @@ export default class Portfolio extends Component {
   renderXYZ() {
     const { holdingData } = this.state;
     let xyzObj = {
-      labels: [this.getStockSymbols(holdingData.xyz)],
+      labels: this.getStockSymbols(holdingData.xyz),
       datasets: [
         {
           label: "Real Estate",
-          data: [],
+          data: this.getOwnedAssets(holdingData.xyz),
           backgroundColor: ["#247F60", "#97FFDB", "#49FFC1", "#1D3D3C"]
         }
       ]
@@ -286,10 +286,10 @@ export default class Portfolio extends Component {
         <br />
         <br />
         <Tabs className="tab-demo z-depth-1" title="Holdings">
-          <Tab title="Viking">
+          <Tab title="Viking" active>
             <BarGraph tableData={this.renderViking()} />
           </Tab>
-          <Tab title="Vanderbilt" active>
+          <Tab title="Vanderbilt">
             <BarGraph tableData={this.renderVanderBilt()} />
           </Tab>
           <Tab title="ABC">

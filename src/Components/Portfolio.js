@@ -31,7 +31,7 @@ export default class Portfolio extends Component {
       .then(h => this.setState({ allData: h, chartData: { holdings: h } }))
       .then(r => this.setChartData())
       .then(r => this.totalHoldings())
-      .then(r => this.setholdingData());
+      .then(r => this.setholdingData())
       .then(r => this.fetchStocks());
   }
 

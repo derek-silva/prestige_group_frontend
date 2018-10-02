@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Table, Tabs, Tab } from "react-materialize";
 import Chart from "./Chart";
 import BarGraph from "./BarGraph";
+import CustomizedTable from "./Table";
 
 export default class Portfolio extends Component {
   constructor() {
@@ -246,12 +247,15 @@ export default class Portfolio extends Component {
 
     return (
       <div align="center">
-        <h1>Portfolio</h1>
+        <h1>Prestige Portfolio</h1>
         <hr />
-        <div className="card-large hoverable">
-          <h3>Assets Under Management: ${this.state.aumdollar}</h3>
-          <h5>Growth Ytd: {this.state.growthytd}%</h5>
-        </div>
+        <CustomizedTable stocks={this.state.stocks}/>
+        <div class="container">
+          <div className="card-large hoverable">
+            <h3>Assets Under Management: ${this.state.aumdollar}</h3>
+            <h5>Growth Ytd: {this.state.growthytd}%</h5>
+          </div>
+
         <Chart chartData={this.state.chartData} legendPosition="top" />
         <br />
         <br />
@@ -269,7 +273,7 @@ export default class Portfolio extends Component {
             <BarGraph tableData={this.renderXYZ()} />
           </Tab>
         </Tabs>
-      </div>
+        </div>
     );
   }
 }

@@ -8,6 +8,9 @@ export default class Portfolio extends Component {
     super();
     this.state = {
       aum: 0,
+      aumdollar: "",
+      growthytd: 0,
+      stocks: [],
       chartData: {
         holdings: []
       },
@@ -27,11 +30,30 @@ export default class Portfolio extends Component {
       .then(h => this.setState({ chartData: { holdings: h } }))
       .then(r => this.setChartData())
       .then(r => this.totalHoldings())
-      .then(r => this.setBarData());
+      .then(r => this.setBarData())
+      .then(r => this.fetchStocks());
   }
 
   componentDidMount() {
     this.fetchHoldings();
+  }
+
+  fetchStocks() {
+    //console.log(this.state)
+    fetch("http://localhost:3000/stocks")
+      .then(stockData => stockData.json())
+      .then(stocks => this.setState({ stocks: stocks }))
+      .then(r => this.calculateGrowth());
+  }
+
+  calculateGrowth() {
+    //console.log(this.state.stocks);
+    let buyinamount = 0;
+    this.state.stocks.data.forEach(stock => {
+      buyinamount += stock.attributes["buy-in-price"] * stock.attributes.shares
+    });
+    let growthytd = ((this.state.aum - buyinamount)/buyinamount) * 100 
+    this.setState({growthytd: parseFloat(growthytd).toFixed(2)})
   }
 
   totalHoldings() {
@@ -41,13 +63,16 @@ export default class Portfolio extends Component {
       holdingString => (sum += parseFloat(holdingString))
     );
     this.setState({
-      aum: sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+      aum: sum,
+      aumdollar: sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     });
-    return sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    //console.log(this.state);
+    //return sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
   setChartData() {
     const { chartData } = this.state;
+    //console.log(this.state);
     // Ajax calls here
     this.setState({
       chartData: {
@@ -113,7 +138,8 @@ export default class Portfolio extends Component {
         <h1>Portfolio</h1>
         <hr />
         <div className="card-large hoverable">
-          <h3>Assets Under Management: ${this.state.aum}</h3>
+          <h3>Assets Under Management: ${this.state.aumdollar}</h3>
+          <h5>Growth Ytd: {this.state.growthytd}%</h5>
         </div>
         <Chart chartData={this.state.chartData} legendPosition="top" />
         <br />

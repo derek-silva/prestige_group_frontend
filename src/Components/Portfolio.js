@@ -250,12 +250,13 @@ export default class Portfolio extends Component {
         <h1>Prestige Portfolio</h1>
         <hr />
         <CustomizedTable stocks={this.state.stocks} />
+        <br />
+        <br />
         <div class="container">
           <div className="card-large hoverable">
             <h3>Assets Under Management: ${this.state.aumdollar}</h3>
             <h5>Growth Ytd: {this.state.growthytd}%</h5>
           </div>
-
           <Chart chartData={this.state.chartData} legendPosition="top" />
           <br />
           <br />
@@ -266,10 +267,10 @@ export default class Portfolio extends Component {
             <Tab title="Vanderbilt">
               <BarGraph tableData={this.renderVanderBilt()} />
             </Tab>
-            <Tab title="ABC">
+            <Tab title="Behemeth">
               <BarGraph tableData={this.renderABC()} />
             </Tab>
-            <Tab title="XYZ">
+            <Tab title="Titan">
               <BarGraph tableData={this.renderXYZ()} />
             </Tab>
           </Tabs>

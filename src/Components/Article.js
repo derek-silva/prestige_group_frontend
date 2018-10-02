@@ -2,7 +2,8 @@ import React from "react";
 
 export default ({ article }) => {
   return (
-    <div className="row">
+
+     <div class="col s12 m4">
       <div className="card hoverable">
         <div className="card-image">
           <img src={article.urlToImage} alt="" />

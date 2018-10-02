@@ -40,7 +40,7 @@ export default class News extends Component {
       >
         <h1 className="header center">Recent News</h1>
         <hr />
-        {this.renderNews()}
+        <div className="row">{this.renderNews()}</div>
       </div>
     );
   }

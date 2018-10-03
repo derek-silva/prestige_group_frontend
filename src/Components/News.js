@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Article from "./Article.js";
+import TradingViewWidget, { Themes } from "react-tradingview-widget";
 
 export default class News extends Component {
   constructor() {
@@ -38,6 +39,14 @@ export default class News extends Component {
           margin: "auto"
         }}
       >
+        <h1 className="header center">Stock Ticker</h1>
+        <hr />
+        <TradingViewWidget
+          symbol="NASDAQ:AAPL"
+          theme={Themes.DARK}
+          locale="us"
+          autosize
+        />
         <h1 className="header center">Market News</h1>
         <hr />
         <div className="row">{this.renderNews()}</div>

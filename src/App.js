@@ -6,6 +6,7 @@ import LogIn from "./Components/LogIn";
 import News from "./Components/News";
 import Home from "./Components/Home";
 import SignUp from "./Components/SignUp";
+import LogOut from './Components/LogOut'
 import { BrowserRouter, Route } from "react-router-dom";
 
 class App extends Component {
@@ -13,7 +14,8 @@ class App extends Component {
     super();
 
     this.state = {
-      loggedInUser: null
+      loggedInUser: null,
+      jwt: ''
     };
   }
 
@@ -25,8 +27,14 @@ class App extends Component {
             <NavBar loggedInUser={this.state.loggedInUser} />
             <Route exact path="/" component={Home} />
             <Route exact path="/contact" component={Contact} />
+            <Route exact path="/logout" component={LogOut} />
             <Route exact path="/news" component={News} />
-            <Route exact path="/login" component={LogIn} />
+            <Route
+              exact
+              path="/login"
+              component={LogIn}
+              loggedInUser={this.state.loggedInUser}
+            />
             <Route exact path="/signup" component={SignUp} />
             <Route
               exact

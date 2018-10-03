@@ -27,7 +27,12 @@ export default class Portfolio extends Component {
   }
 
   fetchHoldings() {
-    fetch("http://localhost:3000/holdings")
+    fetch("http://localhost:3000/holdings", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`
+      }
+    })
       .then(holdingsData => holdingsData.json())
       .then(h => this.setState({ allData: h, chartData: { holdings: h } }))
       .then(r => this.setChartData())
@@ -42,7 +47,12 @@ export default class Portfolio extends Component {
 
   fetchStocks() {
     //console.log(this.state)
-    fetch("http://localhost:3000/stocks")
+    fetch("http://localhost:3000/stocks", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`
+      }
+    })
       .then(stockData => stockData.json())
       .then(stocks => this.setState({ stocks: stocks }))
       .then(r => this.calculateGrowth());

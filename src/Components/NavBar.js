@@ -8,14 +8,23 @@ export const NavBar = props => (
       className="waves-effect waves-light home-button teal darken-4"
     >
       {/*&nbsp;PRESTIGE GROUP LP&nbsp;*/}
-      <img src={require("../images/whitelogofinal.jpg")} alt="" width="200"/>
+      <img src={require("../images/whitelogofinal.jpg")} alt="" width="200" />
     </NavLink>
-    <NavLink
-      to="/login"
-      className="right waves-effect waves-light button teal darken-4"
-    >
-      &nbsp;Log In&nbsp;
-    </NavLink>
+    {localStorage.getItem("jwt") ? (
+      <NavLink
+        to="/logout"
+        className="right waves-effect waves-light button teal darken-4"
+      >
+        &nbsp;Log Out&nbsp;
+      </NavLink>
+    ) : (
+      <NavLink
+        to="/login"
+        className="right waves-effect waves-light button teal darken-4"
+      >
+        &nbsp;Log In&nbsp;
+      </NavLink>
+    )}
     <NavLink
       to="/contact"
       className="right waves-effect waves-light button teal darken-4"
@@ -28,7 +37,7 @@ export const NavBar = props => (
     >
       &nbsp;News&nbsp;
     </NavLink>
-    {props.loggedInUser ? (
+    {localStorage.getItem("jwt") ? (
       <NavLink
         to="/portfolio"
         className="right waves-effect waves-light button teal darken-4"

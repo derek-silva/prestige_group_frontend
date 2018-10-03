@@ -1,10 +1,56 @@
 import React, { Component } from "react";
+import { Route, Redirect } from "react-router";
 
 export default class LogIn extends Component {
+  // handleSubmit = e => {
+  //   debugger;
+  //   //e.preventDefault();
+  //   console.log("HODOR HODOR");
+  // };
+
+  logIn = e => {
+    e.preventDefault();
+    let username = e.target.username.value;
+    let password = e.target.password.value;
+
+    console.log(username);
+    console.log(password);
+    fetch("http://localhost:3000/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        investor: {
+          username: username,
+          password: password
+        }
+      })
+    })
+      .then(r => r.json())
+      .then(r => localStorage.setItem("jwt", r.jwt))
+      .then(_ => this.props.history.push("/portfolio"));
+
+
+    //   console.log(localStorage.getItem("jwt"));
+
+    // <Route
+    //   exact
+    //   path="/"
+    //   render={() =>
+    //     <Redirect to="/portfolio" />
+    //   }
+    // />;
+
+
+
+  };
+
   render() {
     return (
       <div>
-        <h1 align="center">Investor Log In</h1>
+        <h1 align="center">Partner Log In</h1>
         <hr />
         <br />
         <div
@@ -14,11 +60,11 @@ export default class LogIn extends Component {
           }}
           className="form-container"
         >
-          <form>
+          <form onSubmit={this.logIn}>
             <div>
               <div className="input-field col s6">
-                <input id="email" type="text" className="validate" />
-                <label htmlFor="email">Email</label>
+                <input id="username" type="text" className="validate" />
+                <label htmlFor="username">Username</label>
               </div>
               <div className="input-field col s5">
                 <input id="password" type="password" className="validate" />

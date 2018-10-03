@@ -339,6 +339,7 @@ export default class Portfolio extends Component {
     return (
       <div align="center">
         <h1>Prestige Portfolio</h1>
+        {new Date().getHours()+1 >= 16 ? <h4 id="marketclose">U.S. Market Closed</h4> : <h4 id="marketopen">U.S. Market Open</h4>}
         <hr />
         <CustomizedTable stocks={this.state.stocks} />
         <br />

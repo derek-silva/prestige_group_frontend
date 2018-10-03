@@ -85,3 +85,11 @@ tabs .tab a:active,
 .tabs .indicator {
   background-color: #990000;
 }
+
+#marketclose {
+  color: crimson;
+}
+
+#marketopen {
+  color: green;
+}

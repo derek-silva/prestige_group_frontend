@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import NavBar from "./Components/NavBar";
 import Contact from "./Components/Contact";
 import Portfolio from "./Components/Portfolio";
+import Trade from "./Components/Trade";
 import LogIn from "./Components/LogIn";
 import News from "./Components/News";
 import Home from "./Components/Home";
 import SignUp from "./Components/SignUp";
-import LogOut from './Components/LogOut'
+import LogOut from "./Components/LogOut";
 import { BrowserRouter, Route } from "react-router-dom";
 
 class App extends Component {
@@ -15,7 +16,7 @@ class App extends Component {
 
     this.state = {
       loggedInUser: null,
-      jwt: ''
+      jwt: ""
     };
   }
 
@@ -41,6 +42,12 @@ class App extends Component {
               path="/portfolio"
               loggedInUser={this.state.loggedInUser}
               component={Portfolio}
+            />
+            <Route
+              exact
+              path="/trade"
+              loggedInUser={this.state.loggedInUser}
+              component={Trade}
             />
           </React.Fragment>
         </BrowserRouter>

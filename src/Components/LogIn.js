@@ -2,12 +2,6 @@ import React, { Component } from "react";
 import { Route, Redirect } from "react-router";
 
 export default class LogIn extends Component {
-  // handleSubmit = e => {
-  //   debugger;
-  //   //e.preventDefault();
-  //   console.log("HODOR HODOR");
-  // };
-
   logIn = e => {
     e.preventDefault();
     let username = e.target.username.value;
@@ -31,20 +25,6 @@ export default class LogIn extends Component {
       .then(r => r.json())
       .then(r => localStorage.setItem("jwt", r.jwt))
       .then(_ => this.props.history.push("/portfolio"));
-
-
-    //   console.log(localStorage.getItem("jwt"));
-
-    // <Route
-    //   exact
-    //   path="/"
-    //   render={() =>
-    //     <Redirect to="/portfolio" />
-    //   }
-    // />;
-
-
-
   };
 
   render() {

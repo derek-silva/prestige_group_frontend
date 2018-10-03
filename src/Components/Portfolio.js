@@ -35,15 +35,82 @@ export default class Portfolio extends Component {
     })
       .then(holdingsData => holdingsData.json())
       .then(h => this.setState({ allData: h, chartData: { holdings: h } }))
+      .then(r => this.fetchStocks())
       .then(r => this.setChartData())
       .then(r => this.totalHoldings())
-      .then(r => this.setholdingData())
-      .then(r => this.fetchStocks());
+      .then(r => this.setholdingData());
   }
+
+  // timer() {
+  //   this.setState({
+  //     currentCount: this.state.currentCount - 1
+  //   });
+  //   if (this.state.currentCount < 1) {
+  //     clearInterval(this.intervalId);
+  //   }
+  // }
 
   componentDidMount() {
     this.fetchHoldings();
+    this.intervalId = setInterval(this.updateStockPrices.bind(this), 5000);
   }
+
+  componentWillUnmount() {
+    clearInterval(this.intervalId);
+  }
+
+  updateStockPrices() {
+    let tempstocks = this.state.stocks.data.map(stock => ({ ...stock }));
+
+    let promises = tempstocks.map(stock =>
+      fetch(
+        `https://api.iextrading.com/1.0/stock/${stock.attributes.symbol}/price`
+      )
+        .then(r => r.json())
+        .then(price => (stock.attributes.price = price))
+    );
+
+    Promise.all(promises).then(() => {
+      let sum = 0;
+      let fixedsum = 0;
+
+      tempstocks.forEach(stock => {
+        sum += stock.attributes.price * stock.attributes.shares;
+      });
+
+      fixedsum = parseFloat(sum).toFixed(2);
+
+      this.setState({
+        aum: sum,
+        aumdollar: fixedsum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+        stocks: { ...this.state.stocks, data: tempstocks }
+      });
+      this.calculateGrowth();
+    });
+
+    //this.totalHoldings()
+  }
+
+  // formatMoney(n, c, d, t) {
+  //   var c = isNaN((c = Math.abs(c))) ? 2 : c,
+  //     d = d == undefined ? "." : d,
+  //     t = t == undefined ? "," : t,
+  //     s = n < 0 ? "-" : "",
+  //     i = String(parseInt((n = Math.abs(Number(n) || 0).toFixed(c)))),
+  //     j = (j = i.length) > 3 ? j % 3 : 0;
+
+  //   return (
+  //     s +
+  //     (j ? i.substr(0, j) + t : "") +
+  //     i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) +
+  //     (c
+  //       ? d +
+  //         Math.abs(n - i)
+  //           .toFixed(c)
+  //           .slice(2)
+  //       : "")
+  //   );
+  // }
 
   fetchStocks() {
     //console.log(this.state)
@@ -74,6 +141,20 @@ export default class Portfolio extends Component {
     this.state.chartData.datasets[0].data.forEach(
       holdingString => (sum += parseFloat(holdingString))
     );
+
+    // if (this.state.stocks === []){
+    //   return
+    // }
+    // console.log(this.state.stocks)
+    // console.log("aum update function")
+
+    // // let tempstocks = this.state.stocks.map(stock => ({ ...stock }));
+    // // console.log(tempstocks)
+    // // console.log("aum update function")
+    // // tempstocks.forEach(
+    // //   stock => (sum += stock.attributes.price * stock.attributes.shares)
+    // // );
+
     this.setState({
       aum: sum,
       aumdollar: sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")

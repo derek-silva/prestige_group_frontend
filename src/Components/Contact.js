@@ -2,7 +2,7 @@ import React from "react";
 import Iframe from "react-iframe";
 
 
-const mapURL = `https://www.google.com/maps/embed/v1/place?key=AIzaSyAt6YRz4d7616OsN-AtxrsUhUmiNRE4MLU
+const mapURL = `https://www.google.com/maps/embed/v1/place?key=
     &q=Goldman+Sachs,NYC+NY`
 
 export default () => {

@@ -1,5 +1,9 @@
 import React from "react";
 import Iframe from "react-iframe";
+import API_K from '../keys.js'
+
+const mapURL = `https://www.google.com/maps/embed/v1/place?key=${API_K}
+    &q=Goldman+Sachs,NYC+NY`
 
 export default () => {
   return (
@@ -83,8 +87,7 @@ export default () => {
           height="450"
           frameborder="0"
           style="border:0"
-          url="https://www.google.com/maps/embed/v1/place?key=AIzaSyCYin_zurRVW_hsXZ6H-O8GzRfSCFjD5qQ
-    &q=Goldman+Sachs,NYC+NY"
+          url={mapURL}
           allowfullscreen
         />
       </div>

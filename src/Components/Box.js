@@ -5,7 +5,7 @@ export default class Box extends Component {
 state = { text: '' }
 
   componentDidMount() {
-    window.fetch('http://localhost:3000/stocks/').then(data => {
+    window.fetch('https://prestige-group-api.herokuapp.com/stocks/').then(data => {
       data.json().then(res => {
         this.setState({text: (res.data[0].attributes.price)}) 
       })

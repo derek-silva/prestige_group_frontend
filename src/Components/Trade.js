@@ -15,7 +15,7 @@ export default class Trade extends Component {
 
   fetchStocks() {
     //console.log(this.state)
-    fetch("http://localhost:3000/stocks", {
+    fetch("https://prestige-group-api.herokuapp.com/stocks", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwt")}`

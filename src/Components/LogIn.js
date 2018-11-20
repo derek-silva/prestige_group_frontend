@@ -9,7 +9,7 @@ export default class LogIn extends Component {
 
     console.log(username);
     console.log(password);
-    fetch("http://localhost:3000/login", {
+    fetch("https://prestige-group-api.herokuapp.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

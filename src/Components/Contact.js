@@ -1,8 +1,8 @@
 import React from "react";
 import Iframe from "react-iframe";
-import API_K from '../keys.js'
 
-const mapURL = `https://www.google.com/maps/embed/v1/place?key=${API_K}
+
+const mapURL = `https://www.google.com/maps/embed/v1/place?key=AIzaSyAt6YRz4d7616OsN-AtxrsUhUmiNRE4MLU
     &q=Goldman+Sachs,NYC+NY`
 
 export default () => {

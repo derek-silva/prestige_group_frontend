@@ -6,7 +6,7 @@ export default class LogIn extends Component {
     e.preventDefault();
     let username = e.target.username.value;
     let password = e.target.password.value;
-
+    //console logs
     console.log(username);
     console.log(password);
     fetch("https://prestige-group-api.herokuapp.com/login", {

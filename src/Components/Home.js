@@ -26,7 +26,7 @@ export default () => {
           </Button>
         </NavLink>
       </div>
-
+      
       <Parallax imageSrc={require("../images/blur.jpg")} />
       <div className="center section white">
         <div className="row container">
